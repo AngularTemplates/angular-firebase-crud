@@ -1,0 +1,36 @@
+<h2 class="col-md-6 col-md-offset-5">Firebase Tutorial</h2>
+<div class="row">
+  <div class="col-md-2 col-md-offset-5">
+    <button mat-raised-button color="primary" (click)="goToCreatePerson()">Add a Person</button>
+    <form class="example-form">
+      <br>
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" (click)="searchByName()" type="button">Go!</button>
+        </span>
+      </div>
+      <br>
+      <span>18</span>
+      <mat-slider
+        class="example-margin"
+        max="100"
+        min="18"
+        step="1"
+        thumbLabel="true"
+        tickInterval="ageValue"
+        (ngModel)="ageValue"
+        (change)="rangeChange($event)">
+      </mat-slider>
+      <span>100</span>
+    </form>
+
+    <mat-list>
+      <mat-list-item *ngFor="let item of items" (click)="viewDetails(item)">
+        <img mat-list-icon [src]="item.payload.doc.data().avatar">
+        <h4 mat-line>{{item.payload.doc.data().name}} {{item.payload.doc.data().surname}}</h4>
+        <p mat-line>{{item.payload.doc.data().age}}</p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
