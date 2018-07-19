@@ -6,6 +6,7 @@ import { EditPersonResolver } from './edit-person/edit-person.resolver';
 
 export const rootRouterConfig: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'newPeople', component: NewPersonComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'newPerson', component: NewPersonComponent },
   { path: 'details/:id', component: EditPersonComponent, resolve:{data : EditPersonResolver} }
 ];

@@ -41,7 +41,6 @@ export class EditPersonComponent implements OnInit {
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {
-        debugger
         this.item = data.person;
         this.avatarLink = data.person.avatar;
         this.createForm();

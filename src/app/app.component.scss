@@ -1,0 +1,10 @@
+.conteiner{
+    display: grid;
+    grid-template-columns: 70px auto;
+    height: 100%;
+
+  .tab-bar{
+    background: #DD0031;
+    height: 100%;
+  }
+}

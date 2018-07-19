@@ -1,3 +1,15 @@
-<main>
-	<router-outlet></router-outlet>
-</main>
+<div class="conteiner">
+	<div class="tab-bar">
+		<ul class="nav flex-column">
+	  	<li class="nav-item">
+	    	<a class="nav-link active" routerLink="home">List</a>
+	  	</li>
+	  	<li class="nav-item">
+	    	<a class="nav-link" routerLink="newPerson">Add</a>
+	  	</li>
+		</ul>
+	</div>
+	<div class="pages">
+ 		<router-outlet></router-outlet>
+	</div>
+</div>
