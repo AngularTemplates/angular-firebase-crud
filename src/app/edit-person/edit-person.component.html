@@ -1,41 +1,42 @@
-<h2 class="col-md-6 col-md-offset-5">Edit Person <button type="button" (click)="back()" class="btn btn-default navbar-btn">Back</button></h2>
-<div class="row">
-  <div class="col-md-6 col-md-offset-5">
-    <img src="{{avatarLink}}">
-    <br>
-    <br>
-    <button mat-raised-button color="primary" (click)="openDialog()">Change Avatar</button>
-    <br>
-    <form [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+<div class="conteiner">
+  <h2 class="col-md-6 offset-md-5">Edit Person <button type="button" (click)="back()" class="btn btn-default navbar-btn">Back</button></h2>
+  <div class="row">
+    <div class="offset-md-5">
+      <img class="img-avatar" src="{{avatarLink}}">
+      <br>
+      <button mat-raised-button color="primary" class="avatar-button" (click)="openDialog()">Change Avatar</button>
+      <br>
+      <form [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
 
-      <div class="form-group">
-        <mat-form-field>
-          <input matInput placeholder="Name" class="form-control" formControlName="name">
-        </mat-form-field>
-        <ng-container *ngFor="let validation of validation_messages.name">
-          <mat-error *ngIf="exampleForm.get('name').hasError(validation.type) && (exampleForm.get('name').dirty || exampleForm.get('name').touched)">{{validation.message}}</mat-error>
-        </ng-container>
-      </div>
+        <div class="form-group">
+          <mat-form-field class="input-style">
+            <input matInput placeholder="Name" class="form-control" formControlName="name">
+          </mat-form-field>
+          <ng-container *ngFor="let validation of validation_messages.name">
+            <mat-error *ngIf="exampleForm.get('name').hasError(validation.type) && (exampleForm.get('name').dirty || exampleForm.get('name').touched)">{{validation.message}}</mat-error>
+          </ng-container>
+        </div>
 
-      <div class="form-group">
-        <mat-form-field>
-          <input matInput placeholder="Surname" class="form-control" formControlName="surname">
-        </mat-form-field>
-        <ng-container *ngFor="let validation of validation_messages.surname">
-          <mat-error *ngIf="exampleForm.get('surname').hasError(validation.type) && (exampleForm.get('surname').dirty || exampleForm.get('surname').touched)">{{validation.message}}</mat-error>
-        </ng-container>
-      </div>
+        <div class="form-group">
+          <mat-form-field class="input-style">
+            <input matInput placeholder="Surname" class="form-control" formControlName="surname">
+          </mat-form-field>
+          <ng-container *ngFor="let validation of validation_messages.surname">
+            <mat-error *ngIf="exampleForm.get('surname').hasError(validation.type) && (exampleForm.get('surname').dirty || exampleForm.get('surname').touched)">{{validation.message}}</mat-error>
+          </ng-container>
+        </div>
 
-      <div class="form-group">
-        <mat-form-field>
-          <input matInput type="number" min="18" max="100" placeholder="Age" class="form-control" formControlName="age">
-        </mat-form-field>
-        <ng-container *ngFor="let validation of validation_messages.age">
-          <mat-error *ngIf="exampleForm.get('age').hasError(validation.type) && (exampleForm.get('age').dirty || exampleForm.get('age').touched)">{{validation.message}}</mat-error>
-        </ng-container>
-      </div>
+        <div class="form-group">
+          <mat-form-field class="input-style">
+            <input matInput type="number" min="18" max="100" placeholder="Age" class="form-control" formControlName="age">
+          </mat-form-field>
+          <ng-container *ngFor="let validation of validation_messages.age">
+            <mat-error *ngIf="exampleForm.get('age').hasError(validation.type) && (exampleForm.get('age').dirty || exampleForm.get('age').touched)">{{validation.message}}</mat-error>
+          </ng-container>
+        </div>
 
-      <button mat-raised-button color="primary" type="submit" [disabled]="!exampleForm.valid">Save</button>
-    </form>
+        <button mat-raised-button class="avatar-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Save</button>
+      </form>
+    </div>
   </div>
 </div>

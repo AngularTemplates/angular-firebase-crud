@@ -1,8 +1,10 @@
-<div class="row">
-  <div class="col-md-4" *ngFor="let avatar of avatars">
-    <div class="grid-item-wrapper">
-      <div class="grid-item-inner" (click)= "close(avatar)">
-        <img class="img-thumbnail" [src]=avatar.link>
+<div class="conteiner">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let avatar of avatars">
+      <div class="grid-item-wrapper">
+        <div class="grid-item-inner" (click)= "close(avatar)">
+          <img class="img-thumbnail" style="width:200px" [src]=avatar.link>
+        </div>
       </div>
     </div>
   </div>

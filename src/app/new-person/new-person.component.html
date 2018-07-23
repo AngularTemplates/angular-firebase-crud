@@ -1,18 +1,19 @@
 <div class="conteiner">
+  <br>
   <div class="row">
     <div class="offset-md-5">
-      <img src="{{avatarLink}}">
+      <img class="img-avatar" src="{{avatarLink}}">
       <br>
-      <button mat-raised-button color="primary" (click)="openDialog()">Change Avatar</button>
+      <button mat-raised-button class="avatar-button" color="primary" (click)="openDialog()">Change Avatar</button>
     </div>
   </div>
   <div class="row">
-    <div class="offset-md-1">
+    <div class="offset-md-5">
 
       <form [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
 
         <div class="form-group">
-          <mat-form-field>
+          <mat-form-field class="input-style">
             <input matInput placeholder="Name" class="form-control" formControlName="name">
           </mat-form-field>
           <ng-container *ngFor="let validation of validation_messages.name">
@@ -21,7 +22,7 @@
         </div>
 
         <div class="form-group">
-          <mat-form-field>
+          <mat-form-field class="input-style">
             <input matInput placeholder="Surname" class="form-control" formControlName="surname">
           </mat-form-field>
           <ng-container *ngFor="let validation of validation_messages.surname">
@@ -30,7 +31,7 @@
         </div>
 
         <div class="form-group">
-          <mat-form-field>
+          <mat-form-field class="input-style">
             <input matInput type="number" min="18" max="100" placeholder="Age" class="form-control" formControlName="age">
           </mat-form-field>
           <ng-container *ngFor="let validation of validation_messages.age">
@@ -38,7 +39,7 @@
           </ng-container>
         </div>
 
-        <button mat-raised-button color="primary" type="submit" [disabled]="!exampleForm.valid">Create</button>
+        <button mat-raised-button class="avatar-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Create</button>
       </form>
     </div>
   </div>
