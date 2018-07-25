@@ -1,9 +1,17 @@
 <div class="conteiner">
   <div class="row">
+    <div class="col-md-6">
+      <h2>Select Avatar</h2>
+    </div>
+    <div class="offset-md-5">
+      <i class="icon ion-md-close" (click)="close(null)"></i>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-4" *ngFor="let avatar of avatars">
       <div class="grid-item-wrapper">
-        <div class="grid-item-inner" (click)= "close(avatar)">
-          <img class="img-thumbnail" style="width:200px" [src]=avatar.link>
+        <div class="grid-item-inner">
+          <img class="img-thumbnail" style="width:180px" [src]=avatar.link (click)= "close(avatar)">
         </div>
       </div>
     </div>

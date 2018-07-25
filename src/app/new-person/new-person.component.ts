@@ -52,7 +52,10 @@ export class NewPersonComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.avatarLink = result.link;
+      if(result){
+        debugger
+        this.avatarLink = result.link;
+      }
     });
   }
 

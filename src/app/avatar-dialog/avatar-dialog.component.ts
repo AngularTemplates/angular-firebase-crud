@@ -5,7 +5,7 @@ import { MatDialogRef } from '@angular/material';
 @Component({
   selector: 'app-avatar-dialog',
   templateUrl: './avatar-dialog.component.html',
-  styleUrls: ['./avatar-dialog.component.css']
+  styleUrls: ['./avatar-dialog.component.scss']
 })
 export class AvatarDialogComponent implements OnInit {
 

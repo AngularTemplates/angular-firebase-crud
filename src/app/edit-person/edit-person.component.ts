@@ -62,7 +62,9 @@ export class EditPersonComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.avatarLink = result.link;
+      if(result){
+        this.avatarLink = result.link;
+      }
     });
   }
 
