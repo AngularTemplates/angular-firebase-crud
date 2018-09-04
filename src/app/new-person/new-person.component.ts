@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { AvatarDialogComponent } from "../avatar-dialog/avatar-dialog.component";
+import { Router } from '@angular/router';
 import { FirebaseService } from '../service/firebase.service';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-new-person',
@@ -30,8 +30,8 @@ export class NewPersonComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
-    public firebaseService: FirebaseService,
-    private location: Location
+    private router: Router,
+    public firebaseService: FirebaseService
   ) { }
 
   ngOnInit() {
@@ -53,7 +53,6 @@ export class NewPersonComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       if(result){
-        debugger
         this.avatarLink = result.link;
       }
     });
@@ -73,12 +72,9 @@ export class NewPersonComponent implements OnInit {
     .then(
       res => {
         this.resetFields()
+        this.router.navigate(['/home'])
       }
     )
-  }
-
-  back(){
-    this.location.back();
   }
 
 }

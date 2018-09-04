@@ -37,11 +37,7 @@ export class HomeComponent implements OnInit {
   viewDetails(item){
     this.router.navigate(['/details/'+ item.payload.doc.id])
   }
-
-  goToCreatePerson(){
-    this.router.navigate(['/newPerson']);
-  }
-
+  
   capitalizeFirstLetter(value){
     return value.charAt(0).toUpperCase() + value.slice(1);
   }

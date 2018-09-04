@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { MatDialog } from '@angular/material';
 import { AvatarDialogComponent } from "../avatar-dialog/avatar-dialog.component";
 import { FirebaseService } from '../service/firebase.service';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-person',
@@ -34,6 +35,7 @@ export class EditPersonComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private location: Location,
+    private router: Router,
     public dialog: MatDialog
   ) { }
 
@@ -74,7 +76,16 @@ export class EditPersonComponent implements OnInit {
     this.firebaseService.updatePerson(this.item.id,value)
     .then(
       res => {
-        console.log(res);
+        this.router.navigate(['/home'])
+      }
+    )
+  }
+
+  delete(){
+    this.firebaseService.deletePerson(this.item.id)
+    .then(
+      res =>{
+        this.router.navigate(['/home'])
       }
     )
   }

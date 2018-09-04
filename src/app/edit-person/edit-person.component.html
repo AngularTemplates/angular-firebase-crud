@@ -36,6 +36,9 @@
         </div>
 
         <button mat-raised-button class="avatar-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Save</button>
+        <br>
+        <button mat-raised-button class="avatar-button" color="warn" (click)="delete()">Delete</button>
+
       </form>
     </div>
   </div>
