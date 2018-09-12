@@ -1,3 +1,15 @@
+.filter-by-age {
+  color: #6c757d;
+
+  .title {
+    align-self: center;
+  }
+
+  .age-slider {
+    width: 85%;
+  }
+}
+
 .people-list {
   padding: 40px 60px;
 
@@ -24,28 +36,4 @@
       font-size: 20px;
     }
   }
-}
-.add-button{
-  width: 100%;
-}
-
-.age-slider {
-  width: 85%;
-}
-
-.item{
-  height: 80px !important ;
-}
-
-.view-details{
-  color: blue;
-}
-
-.filter-by-age {
-  color: #6c757d;
-
-  .title {
-    align-self: center;
-  }
-
 }

@@ -1,19 +1,15 @@
 <div>
   <div class="row">
-    <div class="col-md-6">
-      <h2>Select Avatar</h2>
+    <div class="col-md-12">
+      <h5>Select Avatar</h5>
     </div>
-    <div class="offset-md-5">
-      <i class="icon ion-md-close" (click)="close(null)"></i>
-    </div>
+    <!-- <div class="col-md-2">
+      <ion-icon class="icon" name="close" (click)="close(null)"></ion-icon>
+    </div> -->
   </div>
-  <div class="row">
-    <div class="col-md-4" *ngFor="let avatar of avatars">
-      <div class="grid-item-wrapper">
-        <div class="grid-item-inner">
-          <img class="img-thumbnail" style="width:180px" [src]=avatar.link (click)= "close(avatar)">
-        </div>
-      </div>
+  <div class="d-flex align-content-center flex-wrap">
+    <div *ngFor="let avatar of avatars">
+      <img class="img-thumbnail" [src]=avatar.link (click)= "close(avatar)">
     </div>
   </div>
 </div>

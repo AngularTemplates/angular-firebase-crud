@@ -1,47 +1,55 @@
-<div>
-<!-- <div class="container"> -->
-  <br>
-  <div class="row">
-    <div class="offset-md-5">
-      <img class="img-avatar" src="{{avatarLink}}">
-      <br>
-      <button mat-raised-button class="avatar-button" color="primary" (click)="openDialog()">Change Avatar</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="offset-md-5">
+<div class="create-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Create Person</li>
+    </ol>
+  </nav>
+  <div class="page-content">
+    <div class="row">
+      <div class="col col-md-4">
+        <img class="img-avatar" src="{{avatarLink}}">
+        <button mat-stroked-button class="change-img-button" color="primary" (click)="openDialog()">Change Image</button>
+      </div>
 
-      <form [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+      <div class="col col-md-8">
 
-        <div class="form-group">
-          <mat-form-field class="input-style">
-            <input matInput placeholder="Name" class="form-control" formControlName="name">
-          </mat-form-field>
-          <ng-container *ngFor="let validation of validation_messages.name">
-            <mat-error *ngIf="exampleForm.get('name').hasError(validation.type) && (exampleForm.get('name').dirty || exampleForm.get('name').touched)">{{validation.message}}</mat-error>
-          </ng-container>
-        </div>
+        <form class="create-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
 
-        <div class="form-group">
-          <mat-form-field class="input-style">
-            <input matInput placeholder="Surname" class="form-control" formControlName="surname">
-          </mat-form-field>
-          <ng-container *ngFor="let validation of validation_messages.surname">
-            <mat-error *ngIf="exampleForm.get('surname').hasError(validation.type) && (exampleForm.get('surname').dirty || exampleForm.get('surname').touched)">{{validation.message}}</mat-error>
-          </ng-container>
-        </div>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Name" class="form-control" formControlName="name">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.name">
+              <mat-error *ngIf="exampleForm.get('name').hasError(validation.type) && (exampleForm.get('name').dirty || exampleForm.get('name').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
 
-        <div class="form-group">
-          <mat-form-field class="input-style">
-            <input matInput type="number" min="18" max="100" placeholder="Age" class="form-control" formControlName="age">
-          </mat-form-field>
-          <ng-container *ngFor="let validation of validation_messages.age">
-            <mat-error *ngIf="exampleForm.get('age').hasError(validation.type) && (exampleForm.get('age').dirty || exampleForm.get('age').touched)">{{validation.message}}</mat-error>
-          </ng-container>
-        </div>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Surname" class="form-control" formControlName="surname">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.surname">
+              <mat-error *ngIf="exampleForm.get('surname').hasError(validation.type) && (exampleForm.get('surname').dirty || exampleForm.get('surname').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
 
-        <button mat-raised-button class="avatar-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Create</button>
-      </form>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput type="number" min="0" max="100" placeholder="Age" class="form-control" formControlName="age">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.age">
+              <mat-error *ngIf="exampleForm.get('age').hasError(validation.type) && (exampleForm.get('age').dirty || exampleForm.get('age').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Create</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
     </div>
   </div>
 </div>

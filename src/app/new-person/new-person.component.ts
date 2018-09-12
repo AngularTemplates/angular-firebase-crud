@@ -48,10 +48,11 @@ export class NewPersonComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(AvatarDialogComponent, {
+      height: '400px',
+      width: '400px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       if(result){
         this.avatarLink = result.link;
       }
@@ -71,8 +72,8 @@ export class NewPersonComponent implements OnInit {
     this.firebaseService.createPerson(value,this.avatarLink)
     .then(
       res => {
-        this.resetFields()
-        this.router.navigate(['/home'])
+        this.resetFields();
+        this.router.navigate(['/home']);
       }
     )
   }

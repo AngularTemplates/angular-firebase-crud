@@ -1,12 +1,41 @@
-.img-avatar{
-  border-radius: 50%;
-  width: 250px;
-}
+.create-page {
 
-.avatar-button{
-  width: 250px;
-}
+  padding: 20px 60px;
 
-.input-style{
-  width: 250px;
+  .page-content {
+    background-color: #FFF;
+
+    .img-avatar {
+      border-radius: 50%;
+      width: 150px;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .change-img-button {
+      display: block;
+      margin: 0px auto;
+    }
+
+    .create-form {
+      padding: 20px;
+
+
+      .submit-button-container {
+        justify-content: flex-end;
+
+        .submit-button{
+          width: 100%;
+        }
+      }
+
+      .input-style{
+        width: 100%;
+      }
+
+      .mat-error {
+        font-size: 12px;
+      }
+    }
+  }
 }
