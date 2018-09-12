@@ -1,21 +1,16 @@
 import { Injectable } from '@angular/core';
-// import 'rxjs/add/operator/toPromise';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  constructor(
-    public afs: AngularFirestore
-  ){
-
-  }
+  constructor(public db: AngularFirestore) {}
 
   getAvatars(){
       return new Promise<any>((resolve, reject) => {
-        this.afs.collection('/avatar').valueChanges()
+        this.db.collection('/avatar').valueChanges()
         .subscribe(snapshots => {
           resolve(snapshots);
         })
@@ -24,7 +19,7 @@ export class FirebaseService {
 
     getPerson(personKey){
       return new Promise<any>((resolve, reject) => {
-        this.afs.collection('people').doc(personKey)
+        this.db.collection('people').doc(personKey)
         .valueChanges()
         .subscribe(snapshots => {
           resolve(snapshots);
@@ -35,7 +30,7 @@ export class FirebaseService {
     updatePerson(personKey, value){
       return new Promise<any>((resolve, reject) => {
         value.nameToSearch = value.name.toLowerCase();
-        this.afs.collection('/people').doc(personKey).set(value)
+        this.db.collection('people').doc(personKey).set(value)
         .then(
           res => {
             resolve(res);
@@ -48,20 +43,20 @@ export class FirebaseService {
 
     deletePerson(personKey){
       return new Promise<any>((resolve, reject) => {
-        this.afs.collection('/people').doc(personKey).delete()
+        this.db.collection('people').doc(personKey).delete()
         .then(
           res => {
             resolve(res);
           },
           err => {
-            reject(err)
+            reject(err);
           })
       })
     }
 
     getPeople(){
       return new Promise<any>((resolve, reject) => {
-        this.afs.collection('/people').snapshotChanges()
+        this.db.collection('people').snapshotChanges()
         .subscribe(snapshots => {
           resolve(snapshots)
         })
@@ -70,7 +65,7 @@ export class FirebaseService {
 
     searchPeople(searchValue){
       return new Promise<any>((resolve, reject) => {
-        this.afs.collection('people',ref => ref.where('nameToSearch', '>=', searchValue)
+        this.db.collection('people',ref => ref.where('nameToSearch', '>=', searchValue)
         .where('nameToSearch', '<=', searchValue + '\uf8ff'))
         .snapshotChanges()
         .subscribe(snapshots => {
@@ -81,10 +76,10 @@ export class FirebaseService {
 
     searchPeopleByAge(value){
       return new Promise<any>((resolve, reject) => {
-        this.afs.collection('people',ref => ref.orderBy('age').startAt(value))
+        this.db.collection('people',ref => ref.orderBy('age').startAt(value))
         .snapshotChanges()
         .subscribe(snapshots => {
-          resolve (snapshots);
+          resolve(snapshots);
         })
       })
     }
@@ -92,7 +87,7 @@ export class FirebaseService {
 
     createPerson(value, avatar){
       return new Promise<any>((resolve, reject) => {
-        this.afs.collection('/people').add({
+        this.db.collection('people').add({
           name: value.name,
           nameToSearch: value.name.toLowerCase(),
           surname: value.surname,

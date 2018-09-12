@@ -85,7 +85,7 @@ export class EditPersonComponent implements OnInit {
     this.firebaseService.deletePerson(this.item.id)
     .then(
       res =>{
-        this.router.navigate(['/home'])
+        this.router.navigate(['/home']);
       }
     )
   }

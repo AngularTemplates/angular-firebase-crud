@@ -1,48 +1,49 @@
-<div class="conteiner">
-  <br>
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <form class="example-form">
-        <div class="input-group">
-          <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-default" (click)="searchByName()" type="button">Go!</button>
-          </span>
-        </div>
-      </form>
+<div class="row">
+  <div class="col-md-4 offset-md-1">
+    <div class="input-group">
+      <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Search by name..." (keyup)="searchByName()">
+      <div class="input-group-append">
+        <span class="input-group-text"><ion-icon class="icon" name="search"></ion-icon></span>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <form class="example-form">
-        <span>18</span>
+  <div class="col-md-6 filter-by-age">
+    <div class="row">
+      <div class="col-md-auto title">
+        <span>Filter by age (older than):</span>
+      </div>
+      <div class="col">
+        <span>0 </span>
         <mat-slider
-          class="slider"
+          class="age-slider"
           max="100"
-          min="18"
+          min="0"
           step="1"
           thumbLabel="true"
-          tickInterval="ageValue"
           (ngModel)="ageValue"
           (change)="rangeChange($event)">
         </mat-slider>
-        <span>100</span>
-      </form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <mat-list>
-        <mat-list-item class="item" *ngFor="let item of items">
-          <img mat-list-icon [src]="item.payload.doc.data().avatar" style="width: 70px; height: 70px;">
-          <h4 mat-line>{{item.payload.doc.data().name}} {{item.payload.doc.data().surname}}</h4>
-          <button (click)="viewDetails(item)" type="button" class="btn btn-outline-primary">View details</button>
-          <p mat-line>{{item.payload.doc.data().age}}</p>
-        </mat-list-item>
-      </mat-list>
+        <span> 100</span>
+      </div>
     </div>
   </div>
 </div>
-<!-- <nav class="navbar navbar-light footer-bar">
-  <span class="navbar-brand mb-0 h1 footer-title">Angular Templates</span>
-</nav> -->
+
+<div class="list-group people-list">
+  <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <div class="col col-md-2 image-col">
+        <img class="image" [src]="item.payload.doc.data().avatar">
+      </div>
+      <div class="col col-md-8 text-col">
+        <h5 class="mb-1">{{item.payload.doc.data().name}} {{item.payload.doc.data().surname}}</h5>
+        <small>Age: {{item.payload.doc.data().age}}</small>
+      </div>
+      <div class="col col-md-2 actions-col">
+        <button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
+          <ion-icon class="icon" name="arrow-round-forward"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,7 +13,6 @@ export class EditPersonResolver implements Resolve<any> {
 
     return new Promise((resolve, reject) => {
       let personId = route.paramMap.get('id');
-      debugger
       this.firebaseService.getPerson(personId)
       .then(data => {
           data.id = personId;

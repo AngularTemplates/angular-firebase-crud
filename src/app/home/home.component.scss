@@ -1,9 +1,36 @@
+.people-list {
+  padding: 40px 60px;
+
+  .image-col {
+    text-align:center;
+
+    .image {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+  }
+  .text-col {
+    margin: auto 0px;
+  }
+  .actions-col {
+    text-align: center;
+    margin: auto 0px;
+
+    .action {
+      line-height: 1;
+    }
+    .icon {
+      font-size: 20px;
+    }
+  }
+}
 .add-button{
   width: 100%;
 }
 
-.slider{
-  width: 95%;
+.age-slider {
+  width: 85%;
 }
 
 .item{
@@ -12,4 +39,13 @@
 
 .view-details{
   color: blue;
+}
+
+.filter-by-age {
+  color: #6c757d;
+
+  .title {
+    align-self: center;
+  }
+
 }

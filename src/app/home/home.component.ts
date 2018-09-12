@@ -9,7 +9,7 @@ import { Router, Params } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  ageValue: number;
+  ageValue: number = 0;
   searchValue: string = "";
   items: Array<any>;
   age_filtered_items: Array<any>;
@@ -17,27 +17,26 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public firebaseService: FirebaseService,
-    private router: Router,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.ageValue = 18;
     this.getData();
   }
 
   getData(){
     this.firebaseService.getPeople()
-    .then(res => {
-      this.items = res;
-      this.age_filtered_items = res;
-      this.name_filtered_items = res;
+    .then(result => {
+      this.items = result;
+      this.age_filtered_items = result;
+      this.name_filtered_items = result;
     })
   }
 
   viewDetails(item){
     this.router.navigate(['/details/'+ item.payload.doc.id])
   }
-  
+
   capitalizeFirstLetter(value){
     return value.charAt(0).toUpperCase() + value.slice(1);
   }
@@ -52,7 +51,6 @@ export class HomeComponent implements OnInit {
   }
 
   rangeChange(event){
-    console.log(event)
     this.firebaseService.searchPeopleByAge(event.value)
     .then(res =>{
       this.age_filtered_items = res;
