@@ -69,7 +69,7 @@ export class NewPersonComponent implements OnInit {
   }
 
   onSubmit(value){
-    this.firebaseService.createPerson(value,this.avatarLink)
+    this.firebaseService.createPerson(value, this.avatarLink)
     .then(
       res => {
         this.resetFields();

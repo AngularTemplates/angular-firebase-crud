@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   getData(){
     this.firebaseService.getPeople()
-    .then(result => {
+    .subscribe(result => {
       this.items = result;
       this.age_filtered_items = result;
       this.name_filtered_items = result;
@@ -44,17 +44,17 @@ export class HomeComponent implements OnInit {
   searchByName(){
     let value = this.searchValue.toLowerCase();
     this.firebaseService.searchPeople(value)
-    .then(res => {
-      this.name_filtered_items = res;
-      this.items = this.combineLists(res, this.age_filtered_items);
+    .subscribe(result => {
+      this.name_filtered_items = result;
+      this.items = this.combineLists(result, this.age_filtered_items);
     })
   }
 
   rangeChange(event){
     this.firebaseService.searchPeopleByAge(event.value)
-    .then(res =>{
-      this.age_filtered_items = res;
-      this.items = this.combineLists(res, this.name_filtered_items);
+    .subscribe(result =>{
+      this.age_filtered_items = result;
+      this.items = this.combineLists(result, this.name_filtered_items);
     })
   }
 

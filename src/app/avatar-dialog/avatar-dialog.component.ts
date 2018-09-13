@@ -22,9 +22,7 @@ export class AvatarDialogComponent implements OnInit {
 
   getData(){
     this.firebaseService.getAvatars()
-    .then(data => {
-      this.avatars = data;
-    })
+    .subscribe(data => this.avatars = data);
   }
 
   close(avatar){

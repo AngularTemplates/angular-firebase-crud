@@ -5,21 +5,18 @@ import { FirebaseService } from '../service/firebase.service';
 @Injectable()
 export class EditPersonResolver implements Resolve<any> {
 
-  constructor(
-    public firebaseService: FirebaseService
-  ) { }
+  constructor(public firebaseService: FirebaseService) { }
 
   resolve(route: ActivatedRouteSnapshot,) {
 
     return new Promise((resolve, reject) => {
       let personId = route.paramMap.get('id');
       this.firebaseService.getPerson(personId)
-      .then(data => {
-          data.id = personId;
-          resolve({
-            person: data
-          })
-      });
+      .subscribe(
+        data => {
+          resolve(data);
+        }
+      );
     })
   }
 }

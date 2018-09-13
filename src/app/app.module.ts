@@ -19,7 +19,7 @@ import { environment } from '../environments/environment';
 import { FirebaseService } from './service/firebase.service';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatInputModule, MatListModule, MatIconModule, MatSliderModule, MatDialogModule } from '@angular/material';
+import {MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule } from '@angular/material';
 
 
 @NgModule({
@@ -41,10 +41,8 @@ import {MatButtonModule, MatInputModule, MatListModule, MatIconModule, MatSlider
     BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,
-    MatListModule,
     MatSliderModule,
-    MatDialogModule,
-    MatIconModule
+    MatDialogModule
   ],
   providers: [FirebaseService, EditPersonResolver],
   bootstrap: [AppComponent],

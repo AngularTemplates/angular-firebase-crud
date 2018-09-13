@@ -7,7 +7,7 @@
   <div class="page-content">
     <div class="row">
       <div class="col col-md-4">
-        <img class="img-avatar" src="{{avatarLink}}">
+        <img class="img-avatar" [src]="item.avatar">
         <button mat-stroked-button class="change-img-button" color="primary" (click)="openDialog()">Change Avatar</button>
       </div>
       <div class="col col-md-8">
@@ -34,7 +34,7 @@
 
           <div class="form-group">
             <mat-form-field class="input-style">
-              <input matInput type="number" min="18" max="100" placeholder="Age" class="form-control" formControlName="age">
+              <input matInput type="number" min="0" max="100" placeholder="Age" class="form-control" formControlName="age">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.age">
               <mat-error *ngIf="exampleForm.get('age').hasError(validation.type) && (exampleForm.get('age').dirty || exampleForm.get('age').touched)">{{validation.message}}</mat-error>
@@ -46,11 +46,9 @@
               <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Save</button>
             </div>
             <div class="col-md-4">
-              <button mat-raised-button class="delete-button" color="warn" (click)="delete()">Delete</button>
+              <button mat-raised-button class="delete-button" color="warn" type="button" (click)="delete()">Delete</button>
             </div>
           </div>
-          <!-- <button mat-raised-button class="avatar-button" color="warn" (click)="delete()">Delete</button> -->
-
         </form>
       </div>
     </div>

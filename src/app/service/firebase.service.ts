@@ -9,97 +9,44 @@ export class FirebaseService {
   constructor(public db: AngularFirestore) {}
 
   getAvatars(){
-      return new Promise<any>((resolve, reject) => {
-        this.db.collection('/avatar').valueChanges()
-        .subscribe(snapshots => {
-          resolve(snapshots);
-        })
-      });
-    }
+      return this.db.collection('/avatar').valueChanges()
+  }
 
-    getPerson(personKey){
-      return new Promise<any>((resolve, reject) => {
-        this.db.collection('people').doc(personKey)
-        .valueChanges()
-        .subscribe(snapshots => {
-          resolve(snapshots);
-        })
-      })
-    }
+  getPerson(personKey){
+    return this.db.collection('people').doc(personKey).snapshotChanges();
+  }
 
-    updatePerson(personKey, value){
-      return new Promise<any>((resolve, reject) => {
-        value.nameToSearch = value.name.toLowerCase();
-        this.db.collection('people').doc(personKey).set(value)
-        .then(
-          res => {
-            resolve(res);
-          },
-          err => {
-            reject(err);
-          })
-      })
-    }
+  updatePerson(personKey, value){
+    value.nameToSearch = value.name.toLowerCase();
+    return this.db.collection('people').doc(personKey).set(value);
+  }
 
-    deletePerson(personKey){
-      return new Promise<any>((resolve, reject) => {
-        this.db.collection('people').doc(personKey).delete()
-        .then(
-          res => {
-            resolve(res);
-          },
-          err => {
-            reject(err);
-          })
-      })
-    }
+  deletePerson(personKey){
+    return this.db.collection('/people').doc(personKey).delete();
+  }
 
-    getPeople(){
-      return new Promise<any>((resolve, reject) => {
-        this.db.collection('people').snapshotChanges()
-        .subscribe(snapshots => {
-          resolve(snapshots)
-        })
-      })
-    }
+  getPeople(){
+    return this.db.collection('people').snapshotChanges();
+  }
 
-    searchPeople(searchValue){
-      return new Promise<any>((resolve, reject) => {
-        this.db.collection('people',ref => ref.where('nameToSearch', '>=', searchValue)
-        .where('nameToSearch', '<=', searchValue + '\uf8ff'))
-        .snapshotChanges()
-        .subscribe(snapshots => {
-          resolve(snapshots);
-        })
-      })
-    }
+  searchPeople(searchValue){
+    return this.db.collection('people',ref => ref.where('nameToSearch', '>=', searchValue)
+      .where('nameToSearch', '<=', searchValue + '\uf8ff'))
+      .snapshotChanges()
+  }
 
-    searchPeopleByAge(value){
-      return new Promise<any>((resolve, reject) => {
-        this.db.collection('people',ref => ref.orderBy('age').startAt(value))
-        .snapshotChanges()
-        .subscribe(snapshots => {
-          resolve(snapshots);
-        })
-      })
-    }
+  searchPeopleByAge(value){
+    return this.db.collection('people',ref => ref.orderBy('age').startAt(value)).snapshotChanges();
+  }
 
 
-    createPerson(value, avatar){
-      return new Promise<any>((resolve, reject) => {
-        this.db.collection('peopletest').add({
-          name: value.name,
-          nameToSearch: value.name.toLowerCase(),
-          surname: value.surname,
-          age: parseInt(value.age),
-          avatar: avatar
-        })
-        .then(
-          (res) => {
-            resolve(res)
-          },
-          err => reject(err)
-        )
-      })
-    }
+  createPerson(value, avatar){
+    return this.db.collection('people').add({
+      name: value.name,
+      nameToSearch: value.name.toLowerCase(),
+      surname: value.surname,
+      age: parseInt(value.age),
+      avatar: avatar
+    });
+  }
 }

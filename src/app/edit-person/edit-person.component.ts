@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { MatDialog } from '@angular/material';
 import { AvatarDialogComponent } from "../avatar-dialog/avatar-dialog.component";
 import { FirebaseService } from '../service/firebase.service';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +14,6 @@ import { Router } from '@angular/router';
 export class EditPersonComponent implements OnInit {
 
   exampleForm: FormGroup;
-  avatarLink: string = '';
   item: any;
 
   validation_messages = {
@@ -34,7 +32,6 @@ export class EditPersonComponent implements OnInit {
     public firebaseService: FirebaseService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private location: Location,
     private router: Router,
     public dialog: MatDialog
   ) { }
@@ -43,8 +40,8 @@ export class EditPersonComponent implements OnInit {
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {
-        this.item = data.person;
-        this.avatarLink = data.person.avatar;
+        this.item = data.payload.data();
+        this.item.id = data.payload.id;
         this.createForm();
       }
     })
@@ -52,31 +49,32 @@ export class EditPersonComponent implements OnInit {
 
   createForm() {
     this.exampleForm = this.fb.group({
-      name: [this.item.name, Validators.required ],
-      surname: [this.item.surname, Validators.required ],
-      age: [this.item.age, Validators.required ]
+      name: [this.item.name, Validators.required],
+      surname: [this.item.surname, Validators.required],
+      age: [this.item.age, Validators.required]
     });
   }
 
   openDialog() {
     const dialogRef = this.dialog.open(AvatarDialogComponent, {
+      height: '400px',
+      width: '400px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       if(result){
-        this.avatarLink = result.link;
+        this.item.avatar = result.link;
       }
     });
   }
 
   onSubmit(value){
-    value.avatar = this.avatarLink;
+    value.avatar = this.item.avatar;
     value.age = Number(value.age);
-    this.firebaseService.updatePerson(this.item.id,value)
+    this.firebaseService.updatePerson(this.item.id, value)
     .then(
       res => {
-        this.router.navigate(['/home'])
+        this.router.navigate(['/home']);
       }
     )
   }
@@ -84,14 +82,17 @@ export class EditPersonComponent implements OnInit {
   delete(){
     this.firebaseService.deletePerson(this.item.id)
     .then(
-      res =>{
+      res => {
         this.router.navigate(['/home']);
+      },
+      err => {
+        console.log(err);
       }
     )
   }
 
-  back(){
-    this.location.back();
+  cancel(){
+    this.router.navigate(['/home']);
   }
 
 }
