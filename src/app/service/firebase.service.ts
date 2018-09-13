@@ -87,7 +87,7 @@ export class FirebaseService {
 
     createPerson(value, avatar){
       return new Promise<any>((resolve, reject) => {
-        this.db.collection('people').add({
+        this.db.collection('peopletest').add({
           name: value.name,
           nameToSearch: value.name.toLowerCase(),
           surname: value.surname,
