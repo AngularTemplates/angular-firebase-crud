@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { NewPersonComponent } from './new-person/new-person.component';
-import { EditPersonComponent } from './edit-person/edit-person.component';
-import { EditPersonResolver } from './edit-person/edit-person.resolver';
+import { NewUserComponent } from './new-user/new-user.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditUserResolver } from './edit-user/edit-user.resolver';
 
 export const rootRouterConfig: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'new-person', component: NewPersonComponent },
-  { path: 'details/:id', component: EditPersonComponent, resolve:{data : EditPersonResolver} }
+  { path: 'new-user', component: NewUserComponent },
+  { path: 'details/:id', component: EditUserComponent, resolve:{data : EditUserResolver} }
 ];

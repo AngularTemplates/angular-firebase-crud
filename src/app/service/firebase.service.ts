@@ -12,36 +12,36 @@ export class FirebaseService {
       return this.db.collection('/avatar').valueChanges()
   }
 
-  getPerson(personKey){
-    return this.db.collection('people').doc(personKey).snapshotChanges();
+  getUser(userKey){
+    return this.db.collection('users').doc(userKey).snapshotChanges();
   }
 
-  updatePerson(personKey, value){
+  updateUser(userKey, value){
     value.nameToSearch = value.name.toLowerCase();
-    return this.db.collection('people').doc(personKey).set(value);
+    return this.db.collection('users').doc(userKey).set(value);
   }
 
-  deletePerson(personKey){
-    return this.db.collection('/people').doc(personKey).delete();
+  deleteUser(userKey){
+    return this.db.collection('users').doc(userKey).delete();
   }
 
-  getPeople(){
-    return this.db.collection('people').snapshotChanges();
+  getUsers(){
+    return this.db.collection('users').snapshotChanges();
   }
 
-  searchPeople(searchValue){
-    return this.db.collection('people',ref => ref.where('nameToSearch', '>=', searchValue)
+  searchUsers(searchValue){
+    return this.db.collection('users',ref => ref.where('nameToSearch', '>=', searchValue)
       .where('nameToSearch', '<=', searchValue + '\uf8ff'))
       .snapshotChanges()
   }
 
-  searchPeopleByAge(value){
-    return this.db.collection('people',ref => ref.orderBy('age').startAt(value)).snapshotChanges();
+  searchUsersByAge(value){
+    return this.db.collection('users',ref => ref.orderBy('age').startAt(value)).snapshotChanges();
   }
 
 
-  createPerson(value, avatar){
-    return this.db.collection('people').add({
+  createUser(value, avatar){
+    return this.db.collection('users').add({
       name: value.name,
       nameToSearch: value.name.toLowerCase(),
       surname: value.surname,

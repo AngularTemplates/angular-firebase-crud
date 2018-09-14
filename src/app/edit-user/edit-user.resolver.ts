@@ -3,15 +3,15 @@ import { Resolve, ActivatedRouteSnapshot, ActivatedRoute } from "@angular/router
 import { FirebaseService } from '../service/firebase.service';
 
 @Injectable()
-export class EditPersonResolver implements Resolve<any> {
+export class EditUserResolver implements Resolve<any> {
 
   constructor(public firebaseService: FirebaseService) { }
 
   resolve(route: ActivatedRouteSnapshot,) {
 
     return new Promise((resolve, reject) => {
-      let personId = route.paramMap.get('id');
-      this.firebaseService.getPerson(personId)
+      let userId = route.paramMap.get('id');
+      this.firebaseService.getUser(userId)
       .subscribe(
         data => {
           resolve(data);

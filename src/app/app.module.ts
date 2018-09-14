@@ -7,14 +7,13 @@ import { rootRouterConfig } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { AvatarDialogComponent } from './avatar-dialog/avatar-dialog.component';
-import { EditPersonComponent } from './edit-person/edit-person.component';
-import { EditPersonResolver } from './edit-person/edit-person.resolver';
-import { NewPersonComponent } from './new-person/new-person.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditUserResolver } from './edit-user/edit-user.resolver';
+import { NewUserComponent } from './new-user/new-user.component';
 import { HomeComponent } from './home/home.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
 import { environment } from '../environments/environment';
 import { FirebaseService } from './service/firebase.service';
 
@@ -26,8 +25,8 @@ import {MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule } from
   declarations: [
     AppComponent,
     AvatarDialogComponent,
-    EditPersonComponent,
-    NewPersonComponent,
+    EditUserComponent,
+    NewUserComponent,
     HomeComponent
   ],
   entryComponents: [AvatarDialogComponent],
@@ -44,7 +43,7 @@ import {MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule } from
     MatSliderModule,
     MatDialogModule
   ],
-  providers: [FirebaseService, EditPersonResolver],
+  providers: [FirebaseService, EditUserResolver],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

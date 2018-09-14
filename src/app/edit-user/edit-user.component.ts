@@ -7,11 +7,11 @@ import { FirebaseService } from '../service/firebase.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-edit-person',
-  templateUrl: './edit-person.component.html',
-  styleUrls: ['./edit-person.component.scss']
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.scss']
 })
-export class EditPersonComponent implements OnInit {
+export class EditUserComponent implements OnInit {
 
   exampleForm: FormGroup;
   item: any;
@@ -71,7 +71,7 @@ export class EditPersonComponent implements OnInit {
   onSubmit(value){
     value.avatar = this.item.avatar;
     value.age = Number(value.age);
-    this.firebaseService.updatePerson(this.item.id, value)
+    this.firebaseService.updateUser(this.item.id, value)
     .then(
       res => {
         this.router.navigate(['/home']);
@@ -80,7 +80,7 @@ export class EditPersonComponent implements OnInit {
   }
 
   delete(){
-    this.firebaseService.deletePerson(this.item.id)
+    this.firebaseService.deleteUser(this.item.id)
     .then(
       res => {
         this.router.navigate(['/home']);

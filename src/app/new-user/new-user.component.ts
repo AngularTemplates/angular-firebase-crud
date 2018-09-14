@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import { FirebaseService } from '../service/firebase.service';
 
 @Component({
-  selector: 'app-new-person',
-  templateUrl: './new-person.component.html',
-  styleUrls: ['./new-person.component.scss']
+  selector: 'app-new-user',
+  templateUrl: './new-user.component.html',
+  styleUrls: ['./new-user.component.scss']
 })
-export class NewPersonComponent implements OnInit {
+export class NewUserComponent implements OnInit {
 
   exampleForm: FormGroup;
   avatarLink: string = "https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg";
@@ -69,7 +69,7 @@ export class NewPersonComponent implements OnInit {
   }
 
   onSubmit(value){
-    this.firebaseService.createPerson(value, this.avatarLink)
+    this.firebaseService.createUser(value, this.avatarLink)
     .then(
       res => {
         this.resetFields();
