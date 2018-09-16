@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { AvatarDialogComponent } from "../avatar-dialog/avatar-dialog.component";
-import { FirebaseService } from '../service/firebase.service';
+import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
 
 @Component({
