@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular6-firebase-crud": {
+    "angular-firebase-crud": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular6-firebase-crud",
+            "outputPath": "dist/angular-firebase-crud",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular6-firebase-crud:build"
+            "browserTarget": "angular-firebase-crud:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular6-firebase-crud:build:production"
+              "browserTarget": "angular-firebase-crud:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular6-firebase-crud:build"
+            "browserTarget": "angular-firebase-crud:build"
           }
         },
         "lint": {
@@ -79,5 +79,5 @@
       }
     }
   },
-  "defaultProject": "angular6-firebase-crud"
+  "defaultProject": "angular-firebase-crud"
 }

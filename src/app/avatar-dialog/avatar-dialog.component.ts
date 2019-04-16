@@ -26,7 +26,7 @@ export class AvatarDialogComponent implements OnInit {
   }
 
   close(avatar){
-    this.dialogRef.close(avatar)
+    this.dialogRef.close(avatar);
   }
 
 }
