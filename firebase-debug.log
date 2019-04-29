@@ -1,0 +1,32 @@
+[debug] [2019-04-29T21:48:18.615Z] ----------------------------------------------------------------------
+[debug] [2019-04-29T21:48:18.618Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bdunklau\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2019-04-29T21:48:18.618Z] CLI Version:   3.16.0
+[debug] [2019-04-29T21:48:18.618Z] Platform:      win32
+[debug] [2019-04-29T21:48:18.618Z] Node Version:  v10.15.3
+[debug] [2019-04-29T21:48:18.619Z] Time:          Mon Apr 29 2019 16:48:18 GMT-0500 (Central Daylight Time)
+[debug] [2019-04-29T21:48:18.619Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-04-29T21:48:18.630Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-04-29T21:48:18.630Z] > authorizing via signed-in user
+[debug] [2019-04-29T21:48:18.632Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/angular-firebase-crud-bd737  
+  
+ Mon Apr 29 2019 16:48:18 GMT-0500 (Central Daylight Time)
+[debug] [2019-04-29T21:48:18.881Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-29T21:48:18.882Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/angular-firebase-crud-bd737/tokens  
+  
+ Mon Apr 29 2019 16:48:18 GMT-0500 (Central Daylight Time)
+[debug] [2019-04-29T21:48:19.110Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\bdunklau\angular-firebase-crud'...
+[info] 
+[debug] [2019-04-29T21:48:19.111Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/angular-firebase-crud-bd737  
+  
+ Mon Apr 29 2019 16:48:19 GMT-0500 (Central Daylight Time)
+[debug] [2019-04-29T21:48:19.258Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-29T21:48:19.258Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/288012774205/clients/_:getWebAppConfig  
+  
+ Mon Apr 29 2019 16:48:19 GMT-0500 (Central Daylight Time)
+[debug] [2019-04-29T21:48:19.444Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: dist/angular-firebase-crud
+[info] +  hosting: Local server: http://localhost:5000
+

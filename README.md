@@ -17,7 +17,7 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 
 ## Online Demo
 
-You can try the online demo of this Angular 7 CRUD [here](https://splendid-ground-95214.firebaseapp.com/home).
+You can try the online demo of this Angular 7 CRUD [here](https://angular-firebase-crud-bd737.firebaseapp.com/home).
 
 ## Premium Starter Apps
 If you want to build a complex and robust web app with Angular you should check [Angular Site Template](https://angular-templates.com/product/angular-site-template) which is a super complete application to build your next angular project. It includes Bootstrap 4, Angular Universal (Server Side Rendering), SEO, Lazy Loading and a detailed documentation on how to get started building Angular apps. Tons of use cases implemented the Angular way such as authentication flows, product listing, filtering, forms, routing guards and more.
